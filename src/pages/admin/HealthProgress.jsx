@@ -1,10 +1,21 @@
-
 import React from 'react';
 import Layout from '../../components/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Heart, TrendingUp, Search } from 'lucide-react';
 
 const HealthProgress = () => {
@@ -13,9 +24,12 @@ const HealthProgress = () => {
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Health Progress Tracking</h1>
-          <p className="text-gray-600 mt-2">Monitor candidate health metrics and progress</p>
+          <p className="text-gray-600 mt-2">
+            Monitor candidate health metrics and progress
+          </p>
         </div>
 
+        {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -51,13 +65,16 @@ const HealthProgress = () => {
           </Card>
         </div>
 
+        {/* Filters and Search */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Search className="h-5 w-5 text-blue-500" />
               Search Progress Records
             </CardTitle>
-            <CardDescription>Find and review candidate progress data</CardDescription>
+            <CardDescription>
+              Find and review candidate progress data
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
@@ -65,6 +82,7 @@ const HealthProgress = () => {
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input placeholder="Search candidate..." className="pl-10" />
               </div>
+
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Select trainer" />
@@ -75,6 +93,7 @@ const HealthProgress = () => {
                   <SelectItem value="trainer2">Sarah Johnson</SelectItem>
                 </SelectContent>
               </Select>
+
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Progress status" />
@@ -87,6 +106,7 @@ const HealthProgress = () => {
                 </SelectContent>
               </Select>
             </div>
+
             <div className="text-center py-8 text-gray-500">
               No progress records found. Progress data will appear here once candidates start their training.
             </div>

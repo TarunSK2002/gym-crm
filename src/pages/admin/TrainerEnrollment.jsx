@@ -1,14 +1,34 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../../components/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card, CardContent, CardDescription, CardHeader, CardTitle
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue
+} from "@/components/ui/select";
 import { UserPlus, Search } from 'lucide-react';
 
 const TrainerEnrollment = () => {
+  const [trainers, setTrainers] = useState([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    specialization: ''
+  });
+
+  const handleEnroll = () => {
+    if (formData.name && formData.email && formData.phone && formData.specialization) {
+      setTrainers([...trainers, { ...formData, id: Date.now() }]);
+      setFormData({ name: '', email: '', phone: '', specialization: '' });
+    } else {
+      alert("Please fill all fields");
+    }
+  };
+
   return (
     <Layout>
       <div className="space-y-6">
@@ -29,19 +49,38 @@ const TrainerEnrollment = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
-                <Input id="name" placeholder="Enter trainer's full name" />
+                <Input
+                  id="name"
+                  placeholder="Enter trainer's full name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="Enter email address" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter email address"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number</Label>
-                <Input id="phone" placeholder="Enter phone number" />
+                <Input
+                  id="phone"
+                  placeholder="Enter phone number"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="specialization">Specialization</Label>
-                <Select>
+                <Select
+                  onValueChange={(value) => setFormData({ ...formData, specialization: value })}
+                  value={formData.specialization}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select specialization" />
                   </SelectTrigger>
@@ -54,7 +93,7 @@ const TrainerEnrollment = () => {
                 </Select>
               </div>
             </div>
-            <Button className="mt-4">
+            <Button className="mt-4" onClick={handleEnroll}>
               <UserPlus className="h-4 w-4 mr-2" />
               Enroll Trainer
             </Button>
@@ -83,9 +122,30 @@ const TrainerEnrollment = () => {
                 </SelectContent>
               </Select>
             </div>
-            <div className="text-center py-8 text-gray-500">
-              No trainers enrolled yet. Start by adding a new trainer above.
-            </div>
+
+            {trainers.length === 0 ? (
+              <div className="text-center py-8 text-gray-500">
+                No trainers enrolled yet. Start by adding a new trainer above.
+              </div>
+            ) : (
+              <ul className="space-y-4">
+                {trainers.map((t) => (
+                  <li
+                    key={t.id}
+                    className="border rounded-lg p-4 flex justify-between items-center"
+                  >
+                    <div>
+                      <p className="font-medium">{t.name}</p>
+                      <p className="text-sm text-gray-500">{t.specialization}</p>
+                    </div>
+                    <div className="text-right text-sm text-gray-500">
+                      <p>{t.email}</p>
+                      <p>{t.phone}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
           </CardContent>
         </Card>
       </div>

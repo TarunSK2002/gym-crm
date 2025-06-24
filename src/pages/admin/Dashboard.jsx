@@ -1,9 +1,31 @@
-
 import React from 'react';
 import Layout from '../../components/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, UserPlus, Calendar, CreditCard, TrendingUp, Activity } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Users,
+  UserPlus,
+  Calendar,
+  CreditCard,
+  TrendingUp,
+  Activity
+} from 'lucide-react';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  LineChart,
+  Line
+} from 'recharts';
 
 const Dashboard = () => {
   const statsData = [
@@ -133,7 +155,7 @@ const Dashboard = () => {
                   <p className="text-sm text-gray-600">2 hours ago</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4 p-3 bg-green-50 rounded-lg">
                 <div className="bg-green-500 p-2 rounded-full">
                   <Users className="h-4 w-4 text-white" />
@@ -143,7 +165,7 @@ const Dashboard = () => {
                   <p className="text-sm text-gray-600">4 hours ago</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4 p-3 bg-purple-50 rounded-lg">
                 <div className="bg-purple-500 p-2 rounded-full">
                   <CreditCard className="h-4 w-4 text-white" />

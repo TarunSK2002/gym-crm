@@ -1,7 +1,12 @@
-
 import React from 'react';
 import Layout from '../../components/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,6 +22,7 @@ const Services = () => {
           <p className="text-gray-600 mt-2">Configure and manage training services</p>
         </div>
 
+        {/* Add New Service Form */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -53,6 +59,7 @@ const Services = () => {
           </CardContent>
         </Card>
 
+        {/* Available Services List */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -63,6 +70,8 @@ const Services = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              
+              {/* Service 1 */}
               <Card>
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg">Personal Training</CardTitle>
@@ -75,7 +84,8 @@ const Services = () => {
                   </div>
                 </CardContent>
               </Card>
-              
+
+              {/* Service 2 */}
               <Card>
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg">Group Fitness</CardTitle>
@@ -88,6 +98,7 @@ const Services = () => {
                   </div>
                 </CardContent>
               </Card>
+
             </div>
           </CardContent>
         </Card>

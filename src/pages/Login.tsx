@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,13 +17,13 @@ const Login = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (user) {
       navigate(user.role === 'admin' ? '/admin/dashboard' : '/trainer/dashboard');
     }
   }, [user, navigate]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -42,7 +41,7 @@ const Login = () => {
         variant: "destructive",
       });
     }
-    
+
     setIsLoading(false);
   };
 

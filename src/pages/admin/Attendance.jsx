@@ -1,10 +1,21 @@
-
 import React from 'react';
 import Layout from '../../components/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Calendar, Search, Filter } from 'lucide-react';
 
 const Attendance = () => {
@@ -22,7 +33,9 @@ const Attendance = () => {
               <Filter className="h-5 w-5 text-blue-500" />
               Attendance Filters
             </CardTitle>
-            <CardDescription>Filter attendance records by various criteria</CardDescription>
+            <CardDescription>
+              Filter attendance records by various criteria
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

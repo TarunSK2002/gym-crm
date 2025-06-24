@@ -1,11 +1,27 @@
-
 import React from 'react';
 import Layout from '../../components/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CreditCard, DollarSign, Search, Filter } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  CreditCard,
+  DollarSign,
+  Search,
+  Filter,
+} from 'lucide-react';
 
 const Payment = () => {
   return (
@@ -13,9 +29,12 @@ const Payment = () => {
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Payment Management</h1>
-          <p className="text-gray-600 mt-2">Manage payments, invoices, and financial records</p>
+          <p className="text-gray-600 mt-2">
+            Manage payments, invoices, and financial records
+          </p>
         </div>
 
+        {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -51,6 +70,7 @@ const Payment = () => {
           </Card>
         </div>
 
+        {/* Filters */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -65,6 +85,7 @@ const Payment = () => {
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input placeholder="Search payments..." className="pl-10" />
               </div>
+
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Payment status" />
@@ -76,19 +97,23 @@ const Payment = () => {
                   <SelectItem value="overdue">Overdue</SelectItem>
                 </SelectContent>
               </Select>
+
               <Input type="date" placeholder="From date" />
               <Input type="date" placeholder="To date" />
             </div>
           </CardContent>
         </Card>
 
+        {/* Payment Records */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <CreditCard className="h-5 w-5 text-green-500" />
               Payment Records
             </CardTitle>
-            <CardDescription>View and manage all payment transactions</CardDescription>
+            <CardDescription>
+              View and manage all payment transactions
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">

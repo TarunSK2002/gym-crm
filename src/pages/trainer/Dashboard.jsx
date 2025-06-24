@@ -1,10 +1,30 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card, CardContent, CardDescription, CardHeader, CardTitle
+} from "@/components/ui/card";
 import { LayoutDashboard, Users, Calendar, Heart } from 'lucide-react';
 
 const Dashboard = () => {
+  const [data, setData] = useState({
+    candidates: 0,
+    sessionsToday: 0,
+    activePrograms: 0,
+    completionRate: 0
+  });
+
+  useEffect(() => {
+    // Simulate fetching data from backend
+    setTimeout(() => {
+      setData({
+        candidates: 12,
+        sessionsToday: 3,
+        activePrograms: 5,
+        completionRate: 86
+      });
+    }, 1000);
+  }, []);
+
   return (
     <Layout>
       <div className="space-y-6">
@@ -20,7 +40,7 @@ const Dashboard = () => {
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">0</div>
+              <div className="text-2xl font-bold">{data.candidates}</div>
               <p className="text-xs text-muted-foreground">Total candidates assigned</p>
             </CardContent>
           </Card>
@@ -31,7 +51,7 @@ const Dashboard = () => {
               <Calendar className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">0</div>
+              <div className="text-2xl font-bold">{data.sessionsToday}</div>
               <p className="text-xs text-muted-foreground">Scheduled for today</p>
             </CardContent>
           </Card>
@@ -42,7 +62,7 @@ const Dashboard = () => {
               <Heart className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">0</div>
+              <div className="text-2xl font-bold">{data.activePrograms}</div>
               <p className="text-xs text-muted-foreground">Running programs</p>
             </CardContent>
           </Card>
@@ -53,7 +73,7 @@ const Dashboard = () => {
               <LayoutDashboard className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">0%</div>
+              <div className="text-2xl font-bold">{data.completionRate}%</div>
               <p className="text-xs text-muted-foreground">Average completion</p>
             </CardContent>
           </Card>

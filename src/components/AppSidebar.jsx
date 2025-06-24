@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
@@ -115,7 +114,7 @@ export function AppSidebar() {
     },
   ];
 
-  const menuItems = user?.role === 'admin' ? adminMenuItems : trainerMenuItems;
+  const menuItems = user && user.role === 'admin' ? adminMenuItems : trainerMenuItems;
 
   const handleLogout = () => {
     logout();
