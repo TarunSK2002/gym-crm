@@ -32,7 +32,7 @@ const mockUsers: User[] = [
   {
     id: '1',
     name: 'Admin User',
-    email: 'admin@example.com',
+    email: 'admin',
     role: 'admin'
   },
   {
@@ -62,7 +62,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Mock authentication - in real app, this would be an API call
     const foundUser = mockUsers.find(u => u.email === email);
     
-    if (foundUser && password === 'password') {
+    if (foundUser && password === 'admin') {
       setUser(foundUser);
       localStorage.setItem('user', JSON.stringify(foundUser));
       setIsLoading(false);
