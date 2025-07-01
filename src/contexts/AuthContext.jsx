@@ -15,7 +15,7 @@ const mockUsers = [
   {
     id: '1',
     name: 'Admin User',
-    email: 'admin',
+    email: 'admin@example.com',
     role: 'admin'
   },
   {
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
     const foundUser = mockUsers.find(u => u.email === email);
 
-    if (foundUser && password === 'admin') {
+    if (foundUser && password === 'passowrd') {
       setUser(foundUser);
       localStorage.setItem('user', JSON.stringify(foundUser));
       setIsLoading(false);
